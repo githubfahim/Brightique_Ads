@@ -1,52 +1,54 @@
 body {
-    overflow: hidden; /* উভয় উল্লম্ব এবং অনুভূমিক স্ক্রলবার লুকানোর জন্য */
-    background-color: #F5EFFF;
+  overflow: hidden; /* উভয় উল্লম্ব এবং অনুভূমিক স্ক্রলবার লুকানোর জন্য */
+  background-color: #F5EFFF;
 }
 
 .carousel-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .carousel-wrapper {
-    display: flex;
-    transition: transform 0.5s linear; /* লিনিয়ার ট্রানজিশন ব্যবহার করব */
-  }
-  
-  .carousel-slide {
-    width: 100%;
-    flex-shrink: 0; /* স্লাইডগুলো সংকুচিত হওয়া থেকে বাঁচায় */
-  }
-  
-  .carousel-slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 5px;
-  }
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 
-  .carousel-slide a {
-    cursor: pointer; /* অথবা auto */
-  }
-  
-  .carousel-dots {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-  }
-  
-  .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #bbb;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .dot.active {
-    background-color: #717171;
-  }
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s linear; /* লিনিয়ার ট্রানজিশন ব্যবহার করব */
+}
+
+.carousel-slide {
+  width: 100%;
+  flex-shrink: 0; /* স্লাইডগুলো সংকুচিত হওয়া থেকে বাঁচায় */
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+.carousel-slide a {
+  display: block; /* পুরো স্লাইডকে ক্লিকযোগ্য করার জন্য */
+  cursor: pointer;
+  text-decoration: none; /* লিঙ্কের ডিফল্ট আন্ডারলাইন সরাতে */
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bbb;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #717171;
+}
