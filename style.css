@@ -1,26 +1,62 @@
-.carousel-container a {
-  text-decoration: none; /* লিঙ্কের ডিফল্ট আন্ডারলাইন সরিয়ে দেয় */
-  display: block; /* পুরো ইমেজ এরিয়া ক্লিকযোগ্য করে */
-  width: 100%;
-  height: auto;
-}
-
-.carousel-image {
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  object-fit: contain;
-  border: none;
-  cursor: pointer; /* মাউস হোভারে পয়েন্টার দেখায় */
-}
-
-/* আপনার ক্যারোসেলের অন্যান্য স্টাইল */
 .carousel-container {
-  /* আপনার কন্টেইনারের স্টাইল */
-  overflow: hidden; /* যদি স্লাইড করার প্রয়োজন হয় */
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* আপনার প্রয়োজন অনুযায়ী */
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .carousel-slide {
-  /* প্রতিটি স্লাইডের স্টাইল */
-  flex: 0 0 100%; /* যদি স্লাইড করার প্রয়োজন হয় */
+    display: none;
+    width: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* ইমেজ aspect ratio ঠিক রাখবে */
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.carousel-indicator.active {
+    background-color: rgba(0, 0, 0, 0.9);
 }
