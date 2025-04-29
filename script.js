@@ -4,15 +4,15 @@ const dotsContainer = document.querySelector('.carousel-dots');
 const slidesData = [
   {
     image: "images/image1.png",
-    url: "https://www.example.com/image1"
+    url: "https://www.facebook.com/BrightiqueMotion"
   },
   {
     image: "images/image2.png",
-    url: "https://www.example.com/image2"
+    url: "https://www.facebook.com/FahimWithVideo"
   },
   {
     image: "images/image3.png",
-    url: "https://www.example.com/image3"
+    url: "https://www.facebook.com"
   }
   // আপনার সকল ইমেজ পাথ এবং URL এখানে অবজেক্ট আকারে দিন
 ];
