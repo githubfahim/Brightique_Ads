@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.carousel-next');
     const indicatorsContainer = document.querySelector('.carousel-indicators');
     let currentIndex = 0;
+    const imageUrl = 'images/image'; // Base image URL
+    const imageExtension = '.png'; // Image extension
+    const linkUrl = 'https://www.facebook.com/BrightiqueMotion'; // Common link URL
 
     function updateIndicators() {
         indicatorsContainer.innerHTML = '';
