@@ -1,0 +1,44 @@
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s linear; /* লিনিয়ার ট্রানজিশন ব্যবহার করব */
+  }
+  
+  .carousel-slide {
+    width: 100%;
+    flex-shrink: 0; /* স্লাইডগুলো সংকুচিত হওয়া থেকে বাঁচায় */
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 80px;
+  }
+  
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #717171;
+  }
