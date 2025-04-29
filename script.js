@@ -1,27 +1,40 @@
 const carouselContainer = document.querySelector('.carousel-container');
 const carouselWrapper = document.querySelector('.carousel-wrapper');
 const dotsContainer = document.querySelector('.carousel-dots');
-const images = [
-  "images/image1.png",
-  "images/image2.png",
-  "images/image3.png"
-  // আপনার সকল ইমেজের পাথ এখানে দিন
+const slidesData = [
+  {
+    image: "images/image1.png",
+    url: "https://www.facebook.com/BrightiqueMotion"
+  },
+  {
+    image: "images/image2.png",
+    url: "https://www.facebook.com/BrightiqueMotion"
+  },
+  {
+    image: "images/image3.png",
+    url: "https://www.facebook.com/"
+  }
+  // আপনার সকল ইমেজ পাথ এবং URL এখানে অবজেক্ট আকারে দিন
 ];
-const slideCount = images.length;
+const slideCount = slidesData.length;
 let currentIndex = 0;
 let slideInterval;
 const slideDuration = 5000; // প্রতি ৫ সেকেন্ড পর পর স্লাইড হবে
 
 function createSlides() {
-  images.forEach(image => {
+  slidesData.forEach(slideData => {
     const slide = document.createElement('div');
     slide.classList.add('carousel-slide');
+    const link = document.createElement('a');
+    link.href = slideData.url;
+    link.target = '_blank'; // নতুন ট্যাবে খুলতে চাইলে
     const img = document.createElement('img');
-    img.src = image;
-    slide.appendChild(img);
+    img.src = slideData.image;
+    link.appendChild(img);
+    slide.appendChild(link);
     carouselWrapper.appendChild(slide);
   });
-  // প্রথম এবং শেষ ইমেজ ডুপ্লিকেট করে ইনফিনিট লুপ তৈরি করি
+  // প্রথম এবং শেষ ইমেজ (লিঙ্ক সহ) ডুপ্লিকেট করে ইনফিনিট লুপ তৈরি করি
   const firstClone = carouselWrapper.children[0].cloneNode(true);
   const lastClone = carouselWrapper.children[slideCount - 1].cloneNode(true);
   carouselWrapper.appendChild(firstClone);
@@ -89,6 +102,17 @@ function resetInterval() {
   clearInterval(slideInterval);
   startInterval();
 }
+
+// ডেটা স্ট্রাকচার পরিবর্তন করুন যাতে ইমেজ পাথ এবং URL একসাথে থাকে
+const updatedImagesWithUrls = [
+  { image: "images/image1.png", url: "https://www.example.com/image1" },
+  { image: "images/image2.png", url: "https://www.example.com/image2" },
+  { image: "images/image3.png", url: "https://www.example.com/image3" }
+  // আপনার সকল ইমেজ পাথ এবং URL এখানে অবজেক্ট আকারে দিন
+];
+
+// `images` অ্যারেটিকে `slidesData` দিয়ে প্রতিস্থাপন করুন
+const slidesData = updatedImagesWithUrls;
 
 createSlides();
 createDots();
