@@ -25,6 +25,7 @@ function initializeCarousel() {
   createSlides();
   createDots();
   startInterval();
+  // কার্সার স্টাইল নিশ্চিত করা
   const carouselLinks = carouselWrapper.querySelectorAll('.carousel-slide a');
   carouselLinks.forEach(link => {
     link.style.cursor = 'pointer';
@@ -37,7 +38,7 @@ function createSlides() {
     const slide = document.createElement('div');
     slide.classList.add('carousel-slide');
     const link = document.createElement('a');
-    link.href = slideData.url; // <- এখানে আপনার দেওয়া URL ব্যবহার হচ্ছে
+    link.href = slideData.url;
     link.target = '_blank';
     const img = document.createElement('img');
     img.src = slideData.image;
@@ -46,13 +47,16 @@ function createSlides() {
     slide.appendChild(link);
     carouselWrapper.appendChild(slide);
   });
+  // ইনফিনিট লুপের জন্য প্রথম ও শেষ স্লাইডের ডুপ্লিকেট তৈরি
   const firstClone = carouselWrapper.children[0].cloneNode(true);
   const lastClone = carouselWrapper.children[slideCount - 1].cloneNode(true);
   carouselWrapper.appendChild(firstClone);
   carouselWrapper.insertBefore(lastClone, carouselWrapper.children[0]);
+  // র‍্যাপারের প্রস্থ এবং প্রতিটি স্লাইডের প্রস্থ নির্ধারণ
   carouselWrapper.style.width = `${(slideCount + 2) * 100}%`;
   const allSlides = document.querySelectorAll('.carousel-slide');
   allSlides.forEach(slide => slide.style.width = `${100 / (slideCount + 2)}%`);
+  // ক্যারোসেলকে প্রথম আসল স্লাইডে পজিশন করা
   carouselWrapper.style.transform = `translateX(-${100 / (slideCount + 2)}%)`;
 }
 
@@ -77,12 +81,13 @@ function nextSlide() {
   currentIndex++;
   carouselWrapper.style.transition = `transform 0.5s ease-in-out`;
   carouselWrapper.style.transform = `translateX(-${(currentIndex + 1) * 100 / (slideCount + 2)}%)`;
+  // লুপের শেষ প্রান্তে পৌঁছে গেলে দ্রুত প্রথম স্লাইডে নিয়ে যাই
   if (currentIndex >= slideCount) {
     setTimeout(() => {
       carouselWrapper.style.transition = 'none';
       currentIndex = 0;
       carouselWrapper.style.transform = `translateX(-${100 / (slideCount + 2)}%)`;
-    }, 500);
+    }, 500); // ট্রানজিশনের সময়
   }
   updateDots();
 }
