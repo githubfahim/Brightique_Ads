@@ -25,6 +25,10 @@ body {
     display: block;
     border-radius: 5px;
   }
+
+  .carousel-slide a {
+    cursor: pointer; /* অথবা auto */
+  }
   
   .carousel-dots {
     position: absolute;
