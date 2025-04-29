@@ -1,3 +1,7 @@
+body {
+    overflow: hidden; /* উভয় উল্লম্ব এবং অনুভূমিক স্ক্রলবার লুকানোর জন্য */
+}
+
 .carousel-container {
     width: 100%;
     overflow: hidden;
