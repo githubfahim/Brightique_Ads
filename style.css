@@ -1,7 +1,7 @@
 .carousel-container {
     width: 100%;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 0px;
     position: relative;
   }
   
@@ -19,7 +19,7 @@
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   
   .carousel-dots {
